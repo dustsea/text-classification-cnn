@@ -17,7 +17,7 @@ import argparse
 def test_file(path):
     contents = []
     from file_reader import native_content
-    with open(path, 'r') as f:
+    with open(path, 'r', encoding='UTF-8') as f:
         list1 = f.readlines()
         for i in list1:
             sentence = i.rstrip('\n')
@@ -104,7 +104,7 @@ def test_input():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='run python test.py -i or python test.py -p testpath.txt')
+    parser = argparse.ArgumentParser(description='run python 2.py -i or python 2.py -p testpath.txt')
 
     parser.add_argument('--path', '-p', type=str, help='path to test dataset')
 
@@ -121,7 +121,7 @@ if __name__ == '__main__':
 
     if not args.path and not args.input:
         print("Args error")
-        print("""usage: python test.py [-i / -p test.txt]""")
+        print("""usage: python 2.py [-i / -p test.txt]""")
         exit(0)
 
     print('Restore CNN model,Please wait...')
